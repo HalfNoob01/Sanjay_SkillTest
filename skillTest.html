@@ -1,0 +1,874 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+ <!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anta&family=Micro+5&display=swap" rel="stylesheet">
+
+<!-- css -->
+    <style>
+
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+   }
+
+   html {
+    scroll-behavior: smooth;
+   }
+
+  /* Hero Section Style  */
+
+      .hero {
+        background: url("images/hero-bg.png") no-repeat center/cover;
+        height: 100vh;
+      }
+
+      @media  (max-width:700px) {
+        .hero {
+        background: url('./images/hero-bg-sm.png') no-repeat center/cover; 
+    }
+        
+      }
+
+      .header   {
+         display: flex;
+         flex-direction: row;
+         justify-content: space-around;
+         align-items: center;
+        
+      }
+
+      .header div {
+        padding: 10px;
+      }
+
+      .header div ul {
+         display: flex;
+         flex-direction: row;
+         justify-content: space-around;
+         list-style: none;
+         font-family: 'Lato', sans-serif;
+         color: #ffff;
+         font-weight: bold;
+         font-style: italic;
+         font-size: 1rem; 
+      }
+
+      .header div ul li {
+          padding-left: 20px;
+      }
+
+      .header div ul li a {
+          padding-bottom: 2px;
+          border-bottom: 2px solid white;
+          cursor: pointer;
+          transition: all 0.3s ease-in-out;
+          text-decoration: none;
+      }
+
+      .header div ul li a:hover {
+         border: none;
+         color: black;
+         font-weight: bolder;
+      }
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    overflow: hidden;
+    padding: 10px;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    background: rgba(255, 252, 252, 0.701);
+}
+
+.navbar div ul {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-around;
+   list-style: none;
+   font-family: 'Lato', sans-serif;
+   color: black;
+   font-weight: 600;
+   font-style: italic;
+   font-size: 0.80rem; 
+}
+ 
+.navbar div ul li {
+    margin-left: 20px;
+    border-bottom: 2px solid black;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.navbar div ul li:hover {
+    border: none;
+    font-weight: lighter;
+    font-size: 1rem;
+}
+
+.navbar div ul li a {
+    text-decoration: none; 
+}
+
+/* History */
+
+.history {
+    background: url('./images/Bg.png') no-repeat center/cover;
+    height: 1090px;
+    display: flex;
+    justify-content: center;
+}
+
+.history-container {
+     width: 50%;
+}
+@media (max-width: 500px) {
+    .history-container {
+     width: 100%;
+}
+    .history {
+        height: 800px;
+    }
+}
+.history-container-top {
+    display: flex;
+    
+}
+
+.history-container-top h1 {
+    font-family: 'Oswald', sans-serif;
+    opacity: 0.502;
+    font-size: 150px;
+    color: #414f6b;
+    font-weight: 700;
+    
+}
+
+.history-container-top span {
+    font-family: 'Oswald', sans-serif;
+    margin-top: 80px;
+    font-size: 32px;
+    color: #414f6b;
+    font-weight: 700;
+    position: relative;
+    right: 33px;
+
+}
+
+.history-container p {
+    font-size: 16px;
+    color: #000000;
+    opacity: 0.7;
+    font-family: 'Lato', sans-serif;
+    margin-left: 80px;
+    
+}
+
+/* slider */
+.extra {
+    display: none;
+}
+
+.slider {
+    background-color: rgba(65, 79, 107,1);
+    margin-top: -200px;
+    opacity: 0.9;
+  
+}
+
+.slider #slides:not(.active) {
+    top: 0;
+    left: -100%;
+}
+
+.slider-content {
+    width: 100%;
+    height: 200px;
+    position: relative;
+    overflow-x: scroll;
+
+ 
+}
+
+.slider-content::-webkit-scrollbar{
+    display: none;
+}
+
+#slides {
+    width: 100%;
+    height: 100%;
+    position: absolute; 
+    transition: 1s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+   
+}
+
+#slides img {
+    margin-left: 5px;
+}
+
+@media (max-width:903px) {
+     #slides img {
+        width: 180px;
+        height: 200px;
+     }
+
+     .slider-content {
+        height: 420px;
+     }
+}
+
+.dotsContainer {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dotsContainer .dot {
+    width: 10px;
+    height: 10px;
+    border: 1.5px solid black;
+    border-radius: 50%;
+    background-color: rgba(184, 183, 193, 0.932);
+    display: inline-block;
+    transition: background-color 0.6s ease;
+    margin-top: -40px;
+    margin-left: 2px;
+}
+
+.dotsContainer .active {
+    background-color: white;
+}
+
+
+@keyframes next1 {
+    from {
+        left: 0%;
+    }
+
+    to {
+        left: -100%;
+    }
+}
+
+@keyframes next2 {
+    from {
+        left: 100%;
+    }
+
+    to {
+        left: 0%
+    }
+}
+
+@keyframes prev1 {
+    from {
+        left: 0%;
+    }
+
+    to {
+        left: 100%;
+    }
+}
+
+@keyframes prev2 {
+    from {
+        left: -100%;
+    }
+
+    to {
+        left: 0%
+    }
+}
+
+/* climb */
+.climb {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.climb-top {
+    display: flex;
+    align-items: center;
+
+}
+
+.climb h1 {
+    font-family: 'Oswald', sans-serif;
+    opacity: 0.502;
+    font-size: 150px;
+    color: #1e2532;
+    font-weight: 700;
+    
+   
+}
+
+.climb p  {
+    font-family: 'Lato', sans-serif;
+    width: 50%;
+}
+
+.climb span {
+    font-family: 'Oswald', sans-serif;
+    font-size: 32px;
+    color: #414f6b;
+    font-weight: 700;
+    position: relative;
+    right: 33px;
+    top: 15px;
+    
+}
+
+@media  (max-width: 900px) {
+    .climb {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .climb h1 {
+        margin-left: -100px;
+        font-size: 100px;
+    }
+    .climb span {
+        font-size: 30px;
+        top: -1px;
+    
+    }
+
+    .climb p {
+        width: 80%;
+        
+    }
+   
+
+}
+
+/* accordion */
+.accordion-control {
+    width: 100%;
+    height: 8vh;
+    display: flex;
+    background-color: #515a71 ;
+}
+
+.accordion-control button {
+    background-color: transparent;
+    border: none;
+    margin-right: 20px;
+    position: relative;
+    left: 10%;
+    color:  #b0b4be;
+    font-family: 'Oswald', sans-serif;
+    font-weight: 800;
+    font-size: 1.4rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 200px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.accordion-control button.active, button:hover {
+    background-color: #b0b4be ;
+    color: #515a71 ;
+    text-decoration: underline;
+
+}
+ .accordion {
+    background: url('./images/tab-1.png') no-repeat center/cover;
+    height: 100vh;
+    width: 100%;
+    transition: all 0.3s ease-in;
+
+ }
+
+ .accordion-table-1 {
+    font-family: 'Oswald', sans-serif;
+    background-color: rgba(255, 255, 255, 0.726);
+    width: 30%;
+    height: 40%;
+    display: flex;
+    justify-content: center;
+    margin: 100px 100px;
+    box-shadow: 0px 0px 5px -2px  black;
+    
+ }
+ .accordion-table-2 {
+    font-family: 'Oswald', sans-serif;
+    background-color: rgba(255, 255, 255, 0.726);
+    width: 30%;
+    height: 40%;
+    justify-content: center;
+    margin: 100px 100px;
+    box-shadow: 0px 0px 5px -2px  black;
+    display: none;
+ }
+ 
+ .schedule {
+    font-size: 2rem;
+    text-transform: uppercase;
+    color: #515a71 ;
+    
+ }
+ 
+ @media (max-width:850px) {
+    .accordion{
+        display: none;
+    }
+ }
+
+
+/* Accordion-sm */
+.accordion-sm {
+    background: url('./images/tab-1.png');
+    display: none;
+}
+
+@media (max-width:840px) {
+    .accordion-sm{
+        display: flex;
+    }
+ }
+
+
+.mountain {
+    border: 2px solid black;
+}
+
+.btn {
+    background-color: #515a71 ;
+    color:  #b0b4be;
+    font-size: 1.4rem;
+    height: 8vh;
+    font-family: 'Oswald', sans-serif;
+    cursor: pointer;
+    font-weight: 800;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.btn:hover  {
+    background-color: #b0b4be ;
+    color: #515a71 ;
+    text-decoration: underline;
+    
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+}
+
+.hide {
+    display: none;
+}
+
+/* footer */
+.footer {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #515a71 ;
+    align-items: center;
+    font-family: 'Oswald', sans-serif;
+    color:  #b0b4be;
+}
+
+@media (max-width:500px) {
+
+    .footer img {
+        width: 100px;
+    }
+    .footer h5 {
+        font-size: small;
+    }
+    
+}
+    </style>
+
+</head>
+<body>
+    
+    <!-- Hero Section  -->
+    <section class="hero">
+        <header class="header">
+            
+            <div><img src="./images/Logo.png" alt="Logo"></div>
+
+            <div>
+                <ul>
+                    <li><a href="#history">01.HISTORY</a></li>
+                    <li><a href="#team">02.TEAM</a></li>
+                </ul>
+            </div>
+
+        </header>
+    </section>
+    <!-- Hero Section End -->
+
+    <!-- Sticky Navbar Section -->
+    <section class="navbar">
+
+            <div>
+               <img src="./images/Logo-letters.png" alt="">
+            </div>
+
+            <div>
+                <ul>
+                    <li><a href="#history">01.HISTORY</a></li>
+                    <li><a href="#team" >02.TEAM</a></li>
+                </ul>
+            </div>
+
+    </section>
+    <!-- Sticky Navbar End -->
+
+    <!-- History Section -->
+    <section class="history" id="history">
+        <div class="history-container">
+            <div class="history-container-top">
+                <h1>01.</h1><span>HISTORY</span> 
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa quod asperiores harum! Reiciendis similique fugit odit numquam cumque veritatis pariatur. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis, consectetur. adipisicing elit. Maxime quo aliquid excepturi est? Excepturi architecto dolores optio pariatur fugiat nulla vitae quidem laborum. Minus dignissimos velit nostrum, asperiores veritatis dolorum!</p>
+        </div>
+    </section>
+    <!-- History Section End -->
+
+    <!-- Slider -->
+    <section class="slider">
+
+        <div class="slider-content">
+        <div id="slides" class="active">
+            <img src="./images/slide2.png"  alt="">
+            <img src="./images/slide1.png" alt="">
+            <img src="./images/slide2.png" alt="">
+            <img src="./images/slide1.png" alt="">
+        </div>
+        <div id="slides">
+            <img src="./images/slide2.png" alt="">
+            <img src="./images/slide1.png" alt="">
+            <img src="./images/slide2.png" alt="">
+            <img src="./images/slide1.png" alt="">
+        </div>
+        <div id="slides">
+            <img src="./images/slide2.png" alt="">
+            <img src="./images/slide1.png" alt="">
+            <img src="./images/slide2.png" alt="">
+            <img src="./images/slide1.png" alt="">
+        </div>
+        <div id="slides">
+            <img src="./images/slide2.png" alt="">
+            <img src="./images/slide1.png" alt="">
+            <img src="./images/slide2.png" alt="">
+            <img src="./images/slide1.png" alt="">
+        </div>
+        </div>
+
+        <div class="dotsContainer">
+            <div class="dot active" attr="0" onclick="switchImage(this)"></div>
+            <div class="dot" attr="1" onclick="switchImage(this)"></div>
+            <div class="dot" attr="2" onclick="switchImage(this)"></div>
+            <div class="dot" attr="3" onclick="switchImage(this)"></div>
+          </div>
+
+      <div class="extra">
+        <button class="next"></button>
+        <button class="prev"></button>
+      </div>
+
+    </section>
+    <!-- Slinder End -->
+
+    <!-- Climb -->
+    <section class="climb">
+        <div class="climb-top">
+            <h1>02.</h1><span>CLIMB</span> 
+        </div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim aliquam ad modi, illo nihil vel id magnam quod velit. Dolor impedit deleniti ad eveniet soluta dolores atque similique nam animi!</p>
+    </section>
+    <!-- Climb end -->
+
+    <!-- Accordion -->
+    <section class="accordion" id="team">
+        <div class="accordion-control">
+            <button class="active" id="btn1">MOUNTAIN1</button>
+            <button id="btn2">MOUNTAIN2</button>
+        </div>
+
+        <div class="accordion-table-1">
+            <table>
+                <thead>
+                  <tr>
+                    <th ><h1 class="schedule">Schedule</h1></th> 
+                  </tr>
+                </thead>
+            
+                <tbody>
+                  <tr>
+                    <td>15 Nov 2016</td>
+                    <td>Vestibulum viverra</td>
+                  </tr>
+                  <tr>
+                    <td>28 Nov 2016</td>
+                    <td>Vestibulum viverra</td>
+                  </tr>
+                  <tr>
+                    <td>18 Dec 2016</td>
+                    <td>Vestibulum viverra</td>
+                  </tr>
+                  <tr>
+                    <td>7 Jan 2017</td>
+                    <td>Vestibulum viverra</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+              <div class="accordion-table-2" >
+                <table>
+                    <thead>
+                      <tr>
+                        <th ><h1 class="schedule">Schedule</h1></th> 
+                      </tr>
+                    </thead>
+                
+                    <tbody>
+                      <tr>
+                        <td>1 Nov 2016</td>
+                        <td>Vestibulum viverra</td>
+                      </tr>
+                      <tr>
+                        <td>20 Nov 2016</td>
+                        <td>Vestibulum viverra</td>
+                      </tr>
+                      <tr>
+                        <td>15 Dec 2016</td>
+                        <td>Vestibulum viverra</td>
+                      </tr>
+                      <tr>
+                        <td>8 Jan 2017</td>
+                        <td>Vestibulum viverra</td>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
+     
+    </section>
+
+    <!-- Accordion For Small Devices -->
+<section class="accordion-sm" id="team">
+    <div class="mountain">
+        <div class="btn" id="btn1_sm">MOUNTAIN1</div>
+        <div class="table1">
+            <table>
+                <thead>
+                  <tr>
+                    <th ><h1 class="schedule">Schedule</h1></th> 
+                  </tr>
+                </thead>
+            
+                <tbody>
+                  <tr>
+                    <td>15 Nov 2016</td>
+                    <td>Vestibulum viverra</td>
+                  </tr>
+                  <tr>
+                    <td>28 Nov 2016</td>
+                    <td>Vestibulum viverra</td>
+                  </tr>
+                  <tr>
+                    <td>18 Dec 2016</td>
+                    <td>Vestibulum viverra</td>
+                  </tr>
+                  <tr>
+                    <td>7 Jan 2017</td>
+                    <td>Vestibulum viverra</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+        <div class="btn" id="btn2_sm">MOUNTAIN2</div>
+        <div class="table2 hide">
+            <table>
+                <thead>
+                  <tr>
+                    <th ><h1 class="schedule">Schedule</h1></th> 
+                  </tr>
+                </thead>
+            
+                <tbody>
+                  <tr>
+                    <td>1 Nov 2016</td>
+                    <td>Vestibulum viverra</td>
+                  </tr>
+                  <tr>
+                    <td>20 Nov 2016</td>
+                    <td>Vestibulum viverra</td>
+                  </tr>
+                  <tr>
+                    <td>15 Dec 2016</td>
+                    <td>Vestibulum viverra</td>
+                  </tr>
+                  <tr>
+                    <td>8 Jan 2017</td>
+                    <td>Vestibulum viverra</td>
+                  </tr>
+                </tbody>
+              </table>
+        </div>
+    </div>
+</section>
+    <!-- Accordion End -->
+
+    <!-- Footer -->
+    <section class="footer" i>
+        <img src="./images/Logo-footer.png" alt="">
+        <h5>COPYRIGHT 2016. ALL RIGHTS RESERVED</h5>
+    </section>
+
+<script>  
+
+// Slider
+let slides = document.querySelectorAll('#slides');
+let next = document.querySelector('.next');
+let prev = document.querySelector('.prev');
+let dots = document.querySelectorAll('.dot');
+let counter = 0;
+let deleteInterval;
+
+function slideNext() {
+  slides[counter].style.animation = 'next1 0.5s ease-in forwards';
+  counter = (counter + 1) % slides.length;
+  slides[counter].style.animation = 'next2 0.5s ease-in forwards';
+  indicators();
+}
+
+function slidePrev() {
+  slides[counter].style.animation = 'prev1 0.5s ease-in forwards';
+  slides[counter].addEventListener('animationend', resetAnimations);
+  counter = (counter - 1 + slides.length) % slides.length;
+  slides[counter].style.animation = 'prev2 0.5s ease-in forwards';
+  indicators();
+}
+
+function resetAnimations() {
+  slides.forEach((img) => (img.style.animation = 'none'));
+}
+
+function autoSliding() {
+  deleteInterval = setInterval(timer, 5000);
+  function timer() {
+    slideNext();
+    indicators();
+  }
+}
+
+autoSliding();
+
+const container = document.querySelector('.slider');
+container.addEventListener('mouseover', function () {
+  clearInterval(deleteInterval);
+});
+
+container.addEventListener('mouseout', autoSliding);
+
+function indicators() {
+  for (let i = 0; i < dots.length; i++) {
+    dots[i].classList.remove('active');
+  }
+  dots[counter].classList.add('active');
+}
+
+function switchImage(currentImage){
+  currentImage.classList.add('active');
+  var imageId = currentImage.getAttribute('attr')
+  if(imageId> counter){
+    slides[counter].style.animation = "next1 0.5s ease-in forwards";
+    counter = imageId;
+    slides[counter].style.animation = 'next2 0.5s ease-in forwards';
+  }
+  else if(imageId == counter){
+    return;
+  }
+  else{
+    slides[counter].style.animation = 'prev1 0.5s ease-in forwards';
+    counter = imageId;
+    slides[counter].style.animation = 'prev2 0.5s ease-in forwards';
+  }
+  indicators();
+}
+
+// accordion
+
+let btn1 = document.querySelector('#btn1')
+let btn2 = document.querySelector('#btn2')
+let data1 = document.querySelector('.accordion-table-1')
+let data2 = document.querySelector('.accordion-table-2')
+let display =  document.querySelector(".accordion")
+
+btn2.addEventListener('click', function(){
+    btn2.classList.add('active')
+    btn1.classList.remove('active')
+    data2.style.display = "flex"
+    data1.style.display = "none"
+    display.style.background = "url('./images/tab-2.png') no-repeat center/cover"
+    
+})
+btn1.addEventListener('click', function(){
+    btn1.classList.add('active')
+    btn2.classList.remove('active')
+    data1.style.display = "flex"
+    data2.style.display = "none"
+    display.style.background = "url('./images/tab-1.png') no-repeat center/cover"
+    
+})
+
+// Accordion-sm
+let btn1_sm = document.querySelector('#btn1_sm');
+let btn2_sm = document.querySelector('#btn2_sm');
+let table1_sm = document.querySelector('.table1');
+let table2_sm = document.querySelector('.table2');
+
+btn1_sm.addEventListener('click', function () {
+    if (table1_sm.classList.contains('hide')) {
+        table1_sm.classList.remove('hide');
+      
+    } else {
+        table1_sm.classList.add('hide');
+    }
+});
+
+btn2_sm.addEventListener('click', function () {
+    if (table2_sm.classList.contains('hide')) {
+        table2_sm.classList.remove('hide');
+       
+    } else {
+        table2_sm.classList.add('hide');
+    }
+});
+
+
+</script>
+</body>
+</html>
